@@ -1,5 +1,5 @@
 import {Loader} from "@googlemaps/js-api-loader";
 
 export const loader = new Loader({
-    apiKey: "AIzaSyA6om2dXkFeGFS5FF72wbuz6KSPzcbMaD8"
+    apiKey: process.env.REACT_APP_MAPS_API_KEY||""
 })
