@@ -1,5 +1,4 @@
 import express from "express";
-
 export default function apiMW(allowEmpty?: boolean) {
   return async function (
     req: express.Request,
@@ -7,8 +6,9 @@ export default function apiMW(allowEmpty?: boolean) {
     next: express.NextFunction
   ) {
     console.log("\n" + req.originalUrl);
-    console.log(res.locals.payload);
+    if(process.env.DEBUG==="true")console.log(res.locals.payload);
     if (!res.locals.payload && !allowEmpty) return next("Nem található adat!");
+    console.log("OK")
     res.send(res.locals.payload);
   };
 }

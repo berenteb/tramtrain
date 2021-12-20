@@ -4,7 +4,7 @@ import {MavApiResponse} from "./types/MavApiResponse";
 
 export default function<InputType> (path: MavApiPaths, data: InputType){
     return new Promise<MavApiResponse>((resolve, reject)=>{
-        console.log(data)
+        if(process.env.DEBUG==="true")console.log(data)
         const options = {
             method: "POST",
             hostname: ApiHostname,

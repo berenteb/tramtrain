@@ -1,9 +1,9 @@
 import express, { NextFunction } from "express";
 import { Router } from "./router";
 import cors from "cors";
-require("dotenv").config();
-
 const app = express();
+
+require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
@@ -16,7 +16,7 @@ app.use(
         res: express.Response,
         next: NextFunction
     ) => {
-        console.error(err);
+        if(process.env.DEBUG==="true")console.error(err);
         res.statusCode = 400;
         res.send(err.toString());
     }
