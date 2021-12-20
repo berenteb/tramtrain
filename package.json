@@ -1,0 +1,12 @@
+{
+  "name": "tramtrain",
+  "version": "1.0.0",
+  "license": "MIT",
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "dependencies": {
+    "prettier": "^2.5.1"
+  }
+}
