@@ -1,8 +1,8 @@
 import express from "express";
 import mavApiRequest from "../mavApiRequest";
 import {MavApiPaths} from "../config/mav-api-paths";
-import {StationListItem, TrainInfo} from "../types";
-import {stations} from "../config/stations.json"
+import {TrainInfo} from "../types";
+import {Stations} from "../config/stations"
 
 export default function getStationMW() {
     return async function (
@@ -35,7 +35,7 @@ export default function getStationMW() {
                     return data;
                 })
             }
-            const localStationInfo = (stations as StationListItem[]).find(s=>s.code===result.stationSchedulerDetails?.station.code)
+            const localStationInfo = Stations.stations.find(s=>s.code===result.stationSchedulerDetails?.station.code)
             res.locals.payload = {departures: resultData, station: {...result.stationSchedulerDetails?.station, lat: localStationInfo?.lat, lon: localStationInfo?.lon}}
             return next()
         }).catch(err=>{
