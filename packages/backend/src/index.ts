@@ -22,6 +22,6 @@ app.use(
     }
 );
 
-app.listen(3001, () => {
-    console.log("Server listening on " + 3001);
+app.listen(process.env.BACKEND_PORT, () => {
+    console.log("Server listening on " + process.env.BACKEND_PORT);
 });
