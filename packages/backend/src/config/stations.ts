@@ -1,4 +1,6 @@
-{
+import {StationListItem} from "../types";
+
+export const Stations: { stations: StationListItem[] } = {
   "stations": [
     {
       "name": "Szeged vasútállomás",
@@ -11,7 +13,7 @@
     {
       "name": "Bem utca",
       "code": "005500713",
-      "baseCode": null,
+      "baseCode": "",
       "localCode": 21,
       "lat": 46.24008,
       "lon": 20.14115
@@ -35,7 +37,7 @@
     {
       "name": "Szeged, Aradi vértanúk tere",
       "code": "005500703",
-      "baseCode": 152403,
+      "baseCode": "152403",
       "localCode": 4,
       "lat": 46.2478,
       "lon": 20.14695
