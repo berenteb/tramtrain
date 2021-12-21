@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import {colors, spacing} from "../../theme/theme";
-import {CenteredFlex} from "../containers/flex-containers";
 
 export function Footer(){
     return <FooterWrapper>
-        <CenteredFlex>
-            <p>&copy; Bálint Berente, 2021.</p>
-        </CenteredFlex>
+        <p>&copy; Bálint Berente, 2021.</p>
     </FooterWrapper>
 }
 
@@ -16,4 +13,8 @@ const FooterWrapper = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: ${spacing.lg};
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
