@@ -8,8 +8,8 @@ import getLocationForTrainMW from "./mw/getLocationForTrainMW";
 
 export function Router(app: Express) {
 
-  app.get("/train-location/:id", getLocationForTrainMW(), apiMW());
-  app.get("/train/:id", getTrainInfoMW(), apiMW());
-  app.get("/stops/:id", getStationMW(), apiMW());
-  app.get("/stops", getStationListMW(), apiMW());
+  app.get("/api/train-location/:id", getLocationForTrainMW(), apiMW());
+  app.get("/api/train/:id", getTrainInfoMW(), apiMW());
+  app.get("/api/stops/:id", getStationMW(), apiMW());
+  app.get("/api/stops", getStationListMW(), apiMW());
 }
