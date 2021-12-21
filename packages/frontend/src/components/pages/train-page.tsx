@@ -5,7 +5,7 @@ import {LoadingPage} from "../elements/loader";
 import {useParams} from "react-router";
 import {AlertText, StopList} from "../elements/basic";
 import {MapsForTrainLocation} from "../elements/map";
-import {TripInfo} from "@tramtrain/backend/src/types";
+import {TripInfo} from "../types/types";
 import {StyledLink} from "../elements/link";
 import {timeText} from "../../utils/time";
 import styled from "styled-components";

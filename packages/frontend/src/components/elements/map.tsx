@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {borderRadius, spacing} from "../../theme/theme";
 import {useEffect, useState} from "react";
 import {loader} from "../../utils/googlemaps-loader";
-import {TrainLocationData} from "@tramtrain/backend/src/types/LocatorTypes";
+import {TrainLocationData} from "../types/LocatorTypes";
 import {useInterval} from "../../utils/use-interval";
 import {ApiPaths, makeApiCall} from "../../utils/api";
 

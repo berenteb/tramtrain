@@ -2,7 +2,7 @@ import {Page} from "../containers/page-containers";
 import {useEffect, useState} from "react";
 import {ApiPaths, makeApiCall} from "../../utils/api";
 import {LoadingPage} from "../elements/loader";
-import {StationPageData} from "@tramtrain/backend/src/types/DataWrapper";
+import {StationPageData} from "../types/DataWrapper";
 import {useNavigate, useParams} from "react-router";
 import styled from "styled-components";
 import {timeText} from "../../utils/time";

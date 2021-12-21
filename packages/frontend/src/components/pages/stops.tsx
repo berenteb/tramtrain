@@ -1,6 +1,6 @@
 import {Page} from "../containers/page-containers";
 import {useEffect, useState} from "react";
-import {StationListItem} from "@tramtrain/backend/src/types";
+import {StationListItem} from "../types/types";
 import {ApiPaths, makeApiCall} from "../../utils/api";
 import {LoadingPage} from "../elements/loader";
 import {StyledLink} from "../elements/link";
