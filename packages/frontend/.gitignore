@@ -161,5 +161,6 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 react-app-env.d.ts
+build
 
 # End of https://www.toptal.com/developers/gitignore/api/node,macos
