@@ -27,17 +27,16 @@ jobs:
       - name: Pull repository
         run: |
           cd ${{ secrets.REPO_DIR }}
-          git pull
-          yarn install
+          git pull --rebase
       - name: Build backend
         run: |
           cd ${{ secrets.REPO_DIR }}/packages/backend
-          yarn install
-          yarn build
+          npm install
+          npm run build
       - name: Build frontend
         run: |
           cd ${{ secrets.REPO_DIR }}/packages/frontend
-          yarn install
-          yarn build
+          npm install
+          npm run build
       - name: Copy frontend
         run: cp -r ./build/* ${{ secrets.DEPLOY_TARGET_DIR }}
