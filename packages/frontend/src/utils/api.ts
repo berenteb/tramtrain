@@ -10,13 +10,14 @@ function getUrl(...paths: string[]) {
   return paths.join("/");
 }
 
-export function makeApiCall<ResponseType>({path, id}:{path:string, id?: string}) {
+export function makeApiCall<ResponseType>({path, id, timeout}:{path:string, id?: string, timeout?: number}) {
   const url = id ? getUrl(host, path, id) : getUrl(host, path);
   const headers = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*"
   };
-  return new Promise((resolve: (value: ResponseType) => void, reject) => {
+
+  const requestPromise = new Promise((resolve: (value: ResponseType) => void, reject) => {
     fetch(url, {
       mode: "cors",
       method: "GET",
@@ -24,7 +25,9 @@ export function makeApiCall<ResponseType>({path, id}:{path:string, id?: string})
     })
       .then(async (response) => {
         if (response.status === 200) return response.json();
-        reject(await response.text());
+        if(response.status === 400) reject("Érvénytelen lekérdezés!")
+        if(response.status === 404) reject("Nem található!")
+        else reject(await response.text());
       })
       .then((data) => {
         resolve(data);
@@ -33,4 +36,6 @@ export function makeApiCall<ResponseType>({path, id}:{path:string, id?: string})
         reject(e);
       });
   });
+  if(!timeout) return requestPromise;
+  else return Promise.race<ResponseType>([requestPromise,new Promise<ResponseType>((_, reject) => setTimeout(() => reject("Időtúllépés a kérésnél!"), timeout))])
 }

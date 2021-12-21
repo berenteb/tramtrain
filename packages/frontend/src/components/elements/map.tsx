@@ -5,6 +5,8 @@ import {loader} from "../../utils/googlemaps-loader";
 import {TrainLocationData} from "../types/LocatorTypes";
 import {useInterval} from "../../utils/use-interval";
 import {ApiPaths, makeApiCall} from "../../utils/api";
+import {CenteredFlex} from "../containers/flex-containers";
+import {LoaderIcon} from "./loader";
 
 const MapsWrapper = styled.div`
   height: 400px;
@@ -86,6 +88,7 @@ export function MapsForTrainLocation({trainCode}:{trainCode: string}){
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[trainLocation?.Vonatszam])
     useInterval(()=>{
+        if(error)return;
         makeApiCall<TrainLocationData>({path: ApiPaths.TRAIN_LOCATION, id: trainCode}).then(result=>{
             setTrainLocation(result);
             setError(undefined);
@@ -100,6 +103,7 @@ export function MapsForTrainLocation({trainCode}:{trainCode: string}){
             setError(e);
         })
     }, 5000)
-    if(!trainLocation || error) return null;
+    if(error) return <i>A vonat helyzete jelenleg nem érhető el.</i>;
+    if(!trainLocation) return <CenteredFlex><LoaderIcon/>Vonat keresése a térképen...</CenteredFlex>
     return <MapsWrapper id="map"/>
 }
