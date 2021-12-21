@@ -39,4 +39,4 @@ jobs:
           npm install
           npm run build
       - name: Copy frontend
-        run: cp -r ./build/* ${{ secrets.DEPLOY_TARGET_DIR }}
+        run: cp -r ${{ secrets.REPO_DIR }}/packages/frontend/build/* ${{ secrets.DEPLOY_TARGET_DIR }}

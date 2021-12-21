@@ -4,7 +4,7 @@ export enum ApiPaths {
   TRAIN_LOCATION = "train-location"
 }
 
-const host = "http://" + window.location.hostname + ":3001";
+const host = process.env.REACT_APP_BACKEND_URL || "http://"+window.location.hostname+":3001/api"
 
 function getUrl(...paths: string[]) {
   return paths.join("/");
