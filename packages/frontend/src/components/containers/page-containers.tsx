@@ -6,6 +6,7 @@ export const Body = styled.div`
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
   p {
     font-size: ${fontSize.sm};
   }
@@ -26,7 +27,7 @@ export const Body = styled.div`
 export const Page = styled.div`
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;

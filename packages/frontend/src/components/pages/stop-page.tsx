@@ -10,17 +10,22 @@ import {borderRadius, boxShadows, colors, spacing} from "../../theme/theme";
 import {InfoText} from "../elements/basic";
 import {Paths} from "../../utils/paths";
 import {Maps} from "../elements/map";
+import {ErrorPage} from "./error";
 
 export function StopPage() {
   const [stop, setStop] = useState<StationPageData>()
+  const [error, setError] = useState<string | undefined>();
   const params = useParams()
   const navigate = useNavigate();
   useEffect(()=>{
-    makeApiCall<StationPageData>({path: ApiPaths.STOPS, id: params.id}).then(result=>{
+    makeApiCall<StationPageData>({path: ApiPaths.STOPS, id: params.id, timeout: 10000}).then(result=>{
       setStop(result);
-    })
+    }).catch(e=>{
+      setError(e);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+  if(error) return <ErrorPage text={error}/>
   if(!stop) return <LoadingPage/>
   return <Page>
     <h1>{stop.station.name}</h1>

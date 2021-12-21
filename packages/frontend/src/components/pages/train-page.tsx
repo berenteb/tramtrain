@@ -12,16 +12,21 @@ import styled from "styled-components";
 import {borderRadius, fontSize, spacing} from "../../theme/theme";
 import {Paths} from "../../utils/paths";
 import {ArrowCircleRight} from "@styled-icons/fluentui-system-filled"
+import {ErrorPage} from "./error";
 
 export function TrainPage() {
   const [train, setTrain] = useState<TripInfo>()
+  const [error, setError] = useState<string | undefined>();
   const params = useParams()
   useEffect(()=>{
-    makeApiCall<TripInfo>({path: ApiPaths.TRAIN, id: params.id}).then(result=>{
+    makeApiCall<TripInfo>({path: ApiPaths.TRAIN, id: params.id, timeout: 10000}).then(result=>{
       setTrain(result);
-    })
+    }).catch(e=>{
+      setError(e);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+  if(error) return <ErrorPage text={error}/>
   if(!train) return <LoadingPage/>
   return <Page>
     <TrainCode>Tram-train {train.code}</TrainCode>

@@ -6,14 +6,19 @@ import {LoadingPage} from "../elements/loader";
 import {StyledLink} from "../elements/link";
 import {InfoText, StopList} from "../elements/basic";
 import {Paths} from "../../utils/paths";
+import {ErrorPage} from "./error";
 
 export function StopsPage() {
   const [stops, setStops] = useState<StationListItem[]>()
+  const [error, setError] = useState<string | undefined>();
   useEffect(()=>{
-    makeApiCall<StationListItem[]>({path:ApiPaths.STOPS}).then(result=>{
+    makeApiCall<StationListItem[]>({path:ApiPaths.STOPS, timeout: 10000}).then(result=>{
       setStops(result);
-    })
+    }).catch(e=>{
+      setError(e);
+    });
   },[])
+  if(error) return <ErrorPage text={error}/>
   if(!stops) return <LoadingPage/>
   return <Page>
     <h1>Megállók</h1>
