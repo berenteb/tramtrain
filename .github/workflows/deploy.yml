@@ -27,6 +27,7 @@ jobs:
       - name: Pull repository
         run: |
           cd ${{ secrets.REPO_DIR }}
+          git reset --hard
           git pull --rebase
       - name: Build backend
         run: |
