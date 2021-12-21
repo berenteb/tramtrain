@@ -14,5 +14,6 @@ const FooterWrapper = styled.div`
   color: white;
   background-color: ${colors.primary};
   width: 100%;
+  box-sizing: border-box;
   padding: ${spacing.lg};
 `

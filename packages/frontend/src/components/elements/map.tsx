@@ -28,7 +28,7 @@ export function Maps({lat, lon}:{lat: number, lon: number}){
             });
             new google.maps.Marker({
                 icon:{
-                    url: process.env.REACT_APP_FROTNEND_URL+"/icons/stop-round-dark.svg",
+                    url: process.env.REACT_APP_FROTNEND_URL+"/map-icons/stop-round-dark.svg",
                     scaledSize: new google.maps.Size(50, 50), // scaled size
                     origin: new google.maps.Point(0,0), // origin
                     anchor: new google.maps.Point(25, 25) // anchor
@@ -67,7 +67,7 @@ export function MapsForTrainLocation({trainCode}:{trainCode: string}){
             }).then(google=>{
                 setMarker(new google.maps.Marker({
                     icon:{
-                        url: process.env.REACT_APP_FROTNEND_URL+"/icons/tram-round-dark.svg",
+                        url: process.env.REACT_APP_FROTNEND_URL+"/map-icons/tram-round-dark.svg",
                         scaledSize: new google.maps.Size(50, 50), // scaled size
                         origin: new google.maps.Point(0,0), // origin
                         anchor: new google.maps.Point(25, 25) // anchor
