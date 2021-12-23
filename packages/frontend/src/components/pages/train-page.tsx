@@ -13,6 +13,7 @@ import {borderRadius, fontSize, spacing} from "../../theme/theme";
 import {Paths} from "../../utils/paths";
 import {ArrowCircleRight} from "@styled-icons/fluentui-system-filled"
 import {ErrorPage} from "./error";
+import {Title} from "../../utils/title";
 
 export function TrainPage() {
   const [train, setTrain] = useState<TripInfo>()
@@ -28,6 +29,7 @@ export function TrainPage() {
   },[])
   if(error) return <ErrorPage text={error}/>
   if(!train) return <LoadingPage/>
+  Title(train.code ? "Tram-train " + train.code : undefined);
   return <Page>
     <TrainCode>Tram-train {train.code}</TrainCode>
     <h2><ArrowIcon/> {train.endStation}</h2>

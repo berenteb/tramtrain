@@ -7,8 +7,10 @@ import {StyledLink} from "../elements/link";
 import {InfoText, StopList} from "../elements/basic";
 import {Paths} from "../../utils/paths";
 import {ErrorPage} from "./error";
+import {Title} from "../../utils/title";
 
 export function StopsPage() {
+  Title("Megállók");
   const [stops, setStops] = useState<StationListItem[]>()
   const [error, setError] = useState<string | undefined>();
   useEffect(()=>{
