@@ -11,6 +11,7 @@ import {InfoText} from "../elements/basic";
 import {Paths} from "../../utils/paths";
 import {Maps} from "../elements/map";
 import {ErrorPage} from "./error";
+import {Title} from "../../utils/title";
 
 export function StopPage() {
   const [stop, setStop] = useState<StationPageData>()
@@ -27,6 +28,7 @@ export function StopPage() {
   },[])
   if(error) return <ErrorPage text={error}/>
   if(!stop) return <LoadingPage/>
+  Title(stop.station.name);
   return <Page>
     <h1>{stop.station.name}</h1>
     <Maps lat={stop.station.lat} lon={stop.station.lon}/>
