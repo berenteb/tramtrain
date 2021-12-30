@@ -1,7 +1,9 @@
 export enum ApiPaths {
   STOPS = "stops",
   TRAIN = "train",
-  TRAIN_LOCATION = "train-location"
+  TRAIN_LOCATION = "train-location",
+  MAV_NEWS = "news/mav",
+  SZKT_NEWS = "news/szkt",
 }
 
 const host = process.env.REACT_APP_BACKEND_URL || "http://"+window.location.hostname+":3001/api"

@@ -29,9 +29,9 @@ const WidgetWrapper = styled.div`
   cursor: pointer;
   background-color: ${colors.primaryTranslucent};
   color: ${colors.primary};
-  svg{
-    max-height: 100px;
-    max-width: 100px;
+  .icon{
+    height: 100px;
+    width: 100px;
     stroke: ${colors.primary};
   }
   box-sizing: border-box;

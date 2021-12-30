@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {borderRadius, colors} from "../../theme/theme";
+import {borderRadius, colors, spacing} from "../../theme/theme";
 import StopDot from "../../assets/stop_dot.svg"
 
 export const StyledImage = styled.img<{ $rounded?: boolean }>`
@@ -44,4 +44,10 @@ export const StopList = styled.ul`
 export const AlertText = styled.p`
   color: ${colors.danger};
   font-style: italic;
+`
+
+export const P = styled.p`
+  text-align: justify;
+  max-width: 600px;
+  margin: ${spacing.md};
 `
