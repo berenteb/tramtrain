@@ -28,7 +28,7 @@ export function Navbar(){
         </NavbarMainGroup>
         <NavbarGroup $isMenuOpen={menuOpen} >
             <LinkButton className="navbutton" kind={ButtonKinds.PLAIN} to={Paths.MAIN}>Főoldal</LinkButton>
-            {/*<LinkButton className="navbutton" kind={ButtonKinds.PLAIN} to={Paths.STOPS}>Megállók</LinkButton>*/}
+            <LinkButton className="navbutton" kind={ButtonKinds.PLAIN} to={Paths.STOPS}>Megállók</LinkButton>
         </NavbarGroup>
     </NavbarWrapper>
     </NavbarContentWrapper>

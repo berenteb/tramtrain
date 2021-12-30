@@ -9,6 +9,6 @@ export const StyledLink = styled(Link)`
   -moz-box-shadow: ${boxShadows.md};
   border-radius: 300px;
   text-decoration: none;
-  color: black;
+  color: black !important;
   margin: ${spacing.xs};
 `

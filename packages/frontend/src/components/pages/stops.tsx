@@ -5,7 +5,6 @@ import {ApiPaths, makeApiCall} from "../../utils/api";
 import {LoadingPage} from "../elements/loader";
 import {StyledLink} from "../elements/link";
 import {InfoText, StopList} from "../elements/basic";
-import {Paths} from "../../utils/paths";
 import {ErrorPage} from "./error";
 import {Title} from "../../utils/title";
 
@@ -27,7 +26,7 @@ export function StopsPage() {
     <InfoText>Válassz megállót!</InfoText>
     <StopList>
       {stops.map(stop=>{
-        return <li key={stop.localCode}><StyledLink to={Paths.STOPS+"/"+stop.code}>{stop.name}</StyledLink></li>
+        return <li key={stop.localCode}><StyledLink to={stop.code}>{stop.name}</StyledLink></li>
       })}
     </StopList>
   </Page>
