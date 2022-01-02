@@ -3,7 +3,7 @@ import {colors, spacing} from "../../theme/theme";
 
 export function Footer(){
     return <FooterWrapper>
-        <p>&copy; 2021., Bálint Berente</p>
+        <p>&copy; 2022, Bálint Berente</p>
     </FooterWrapper>
 }
 
