@@ -21,7 +21,7 @@ export function StopsPage() {
     makeApiCall<StationListItem[]>({path:ApiPaths.STOPS, timeout: 10000}).then(result=>{
       setStops(result);
     }).catch(e=>{
-      setError(e);
+      setError(e.toString());
     });
   },[])
   if(error) return <ErrorPage text={error}/>

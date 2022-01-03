@@ -24,7 +24,7 @@ export function TrainPage() {
     makeApiCall<TripInfo>({path: ApiPaths.TRAIN, id: params.id, timeout: 10000}).then(result=>{
       setTrain(result);
     }).catch(e=>{
-      setError(e);
+      setError(e.toString());
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])

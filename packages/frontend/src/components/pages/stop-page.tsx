@@ -23,7 +23,7 @@ export function StopPage() {
     makeApiCall<StationPageData>({path: ApiPaths.STOPS, id: params.id, timeout: 10000}).then(result=>{
       setStop(result);
     }).catch(e=>{
-      setError(e);
+      setError(e.toString());
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
