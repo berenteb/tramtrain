@@ -44,7 +44,7 @@ export function MainPage() {
       A közlemények is a hivatalos weboldalakról származnak. Ezeket kísérleti jelleggel próbálja szűrni a rendszer, ez nem jelent teljeskörű tájékoztatást.
     </P>
     <P>
-      Szakmabelieknek itt a projekt tárolójának linkje: <a target="_blank" rel="noreferrer" href="https://github.com/berenteb/tramtrain">Tramtrain</a>
+      Szakmabelieknek itt a projekt tárolójának linkje: <a target="_blank" rel="noreferrer" href="https://github.com/berenteb/tramtrain">Tram-train a GitHub-on</a>
     </P>
   </Page>
 }
