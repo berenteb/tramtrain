@@ -40,8 +40,14 @@ export const boxShadows = {
 };
 
 export const colors = {
-  primary: "#4e989a",
-  primaryTranslucent: "rgba(78,152,154,0.15)",
+  primary: "#63b7d5",
+  primaryTranslucent: "rgba(0,161,228,0.15)",
+  backgroundLight: "#f5f5f5",
+  backgroundDark: "black",
+  cardBackgroundLight: "white",
+  cardBackgroundDark: "rgb(40,40,40)",
+  textColorLight: "#424242",
+  textColorDark: "#f5f5f5",
   secondary: "#0A2463",
   green: "#40b971",
   danger: "#c55151",

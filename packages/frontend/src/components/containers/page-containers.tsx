@@ -7,23 +7,34 @@ export const Body = styled.div`
   max-width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: ${colors.backgroundLight};
+  color: ${colors.textColorLight};
+
   p {
     font-size: ${fontSize.sm};
   }
+
   h1 {
     font-size: ${fontSize.xl};
     font-weight: lighter;
   }
+
   h2 {
     font-size: ${fontSize.lg};
     font-weight: lighter;
   }
+
   h3 {
     font-size: ${fontSize.md};
     font-weight: lighter;
   }
-  a{
+
+  a {
     color: ${colors.primary};
+  }
+  @media (prefers-color-scheme: dark){
+    background-color: ${colors.backgroundDark};
+    color: ${colors.textColorDark};
   }
 `;
 

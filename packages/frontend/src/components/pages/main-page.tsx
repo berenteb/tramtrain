@@ -1,7 +1,7 @@
 import {Page, PageAlignment} from "../containers/page-containers";
 import {Widget, WidgetArea} from "../elements/widget";
 import {Paths} from "../../utils/paths";
-import {ReactComponent as StopIcon} from "../../assets/icons/stop-round-light.svg";
+import {ReactComponent as StopIcon} from "../../assets/icons/stop-without-background.svg";
 import {News} from "@styled-icons/fluentui-system-regular/News";
 import styled from "styled-components";
 import {colors} from "../../theme/theme";
@@ -9,24 +9,25 @@ import {P} from "../elements/basic";
 
 export function MainPage() {
   return <Page $alignment={PageAlignment.TOP}>
-    <h2>Tram-train információk</h2>
-    <p>Hiteles forrásból, egyszerűen!</p>
+    <h1>Tram-train információk</h1>
     <WidgetArea>
       <Widget to={Paths.STOPS}>
-        <StopIcon className="icon"/>
-        <h2>Megállók</h2>
+        <IconWrapper className="icon">
+          <StopIcon/>
+        </IconWrapper>
+        <p>Megállók</p>
       </Widget>
       <Widget to={Paths.MAV_NEWS}>
         <IconWrapper className="icon">
           <News/>
         </IconWrapper>
-        <h2>MÁV közlemények</h2>
+        <p>MÁV közlemények</p>
       </Widget>
       <Widget to={Paths.SZKT_NEWS}>
         <IconWrapper className="icon">
           <News/>
         </IconWrapper>
-        <h2>SZKT közlemények</h2>
+        <p>SZKT közlemények</p>
       </Widget>
     </WidgetArea>
     <h2>A projektről</h2>
@@ -49,7 +50,7 @@ export function MainPage() {
 }
 
 const IconWrapper = styled.div`
-  background-color: ${colors.primaryTranslucent};
+   background-color: ${colors.primaryTranslucent};
   border-radius: 300px;
   display: flex;
   align-items: center;
@@ -58,5 +59,8 @@ const IconWrapper = styled.div`
     height: 60px;
     stroke: ${colors.primary};
     stroke-width: .1px;
+    .a{
+      opacity: 1;
+    }
   }
 `

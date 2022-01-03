@@ -1,5 +1,10 @@
 import {SchedulerEntity} from "./TrainInfo";
 
+export enum Directions {
+    SZEGED = "Szeged",
+    HMVHELY = "Hódmezővásárhely"
+}
+
 export type StationListItem = {
     "name": string,
     "code": string,
@@ -7,6 +12,7 @@ export type StationListItem = {
     "localCode": number,
     "lat": number,
     "lon": number
+    "direction"?: Directions
 }
 
 export type TrainInfo = {

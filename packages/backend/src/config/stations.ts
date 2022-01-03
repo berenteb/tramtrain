@@ -1,4 +1,4 @@
-import {StationListItem} from "../types";
+import {Directions, StationListItem} from "../types";
 
 export const Stations: { stations: StationListItem[] } = {
   "stations": [
@@ -16,7 +16,8 @@ export const Stations: { stations: StationListItem[] } = {
       "baseCode": "",
       "localCode": 21,
       "lat": 46.24008,
-      "lon": 20.14115
+      "lon": 20.14115,
+      "direction": Directions.SZEGED
     },
     {
       "name": "Szeged, Galamb utca",
@@ -24,7 +25,8 @@ export const Stations: { stations: StationListItem[] } = {
       "baseCode": "152402",
       "localCode": 2,
       "lat": 46.2416666,
-      "lon": 20.1424182
+      "lon": 20.1424182,
+      "direction": Directions.HMVHELY
     },
     {
       "name": "Szeged, Bécsi körút",

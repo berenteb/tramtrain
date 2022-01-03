@@ -2,22 +2,15 @@ import styled from "styled-components";
 import {colors} from "../../theme/theme";
 import {useNavigate} from "react-router";
 import {ReactNode} from "react";
+import {CardWrapper} from "./basic";
 
 export const WidgetArea = styled.div`
-  width: 100%;
+  max-width: 900px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
   flex-direction: row;
-  padding: 10px;
-  box-sizing: border-box;
-  @media screen and (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media screen and (max-width: 700px) {
-    grid-template-columns: 1fr;
-  }
+  align-items: center;
+  justify-content: center;
 `;
 
 export function Widget({to, children}:{to: string, children: ReactNode}){
@@ -25,18 +18,13 @@ export function Widget({to, children}:{to: string, children: ReactNode}){
     return <WidgetWrapper onClick={()=>{navigate(to)}}>{children}</WidgetWrapper>
 }
 
-const WidgetWrapper = styled.div`
+const WidgetWrapper = styled(CardWrapper)`
   cursor: pointer;
-  background-color: ${colors.primaryTranslucent};
-  color: ${colors.primary};
   .icon{
     height: 100px;
     width: 100px;
-    stroke: ${colors.primary};
+    color: ${colors.primary};
   }
-  box-sizing: border-box;
-  border-radius: 20px;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,5 +33,12 @@ const WidgetWrapper = styled.div`
   transition: transform .2s;
   :hover{
     transform: scale(1.05);
+  }
+  overflow: hidden;
+  p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
   }
 `;
