@@ -1,5 +1,6 @@
 {
- "name": "Tramtrain",
+ "name": "Tram-train",
+ "description": "Menetrend, járműkövetés és aktuális információk a Szeged és Hódmezővásárhely között közlekedő vasútvillamos vonalhoz.",
  "display": "standalone",
  "icons": [
   {

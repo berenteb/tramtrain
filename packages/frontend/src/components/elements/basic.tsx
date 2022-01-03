@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {borderRadius, colors, spacing} from "../../theme/theme";
+import {borderRadius, boxShadows, colors, spacing} from "../../theme/theme";
 import StopDot from "../../assets/stop_dot.svg"
 
 export const StyledImage = styled.img<{ $rounded?: boolean }>`
@@ -12,7 +12,6 @@ export const StyledImage = styled.img<{ $rounded?: boolean }>`
 
 export const InfoText = styled.p`
   font-style: italic;
-  color: dimgray;
 `
 
 export const StopList = styled.ul`
@@ -38,6 +37,9 @@ export const StopList = styled.ul`
     :last-child::before{
       border-left:none;
     }
+    :last-child{
+      padding-bottom: 0;
+    }
   }
 `
 
@@ -50,4 +52,20 @@ export const P = styled.p`
   text-align: justify;
   max-width: 600px;
   margin: ${spacing.md};
+`
+
+export const CardWrapper = styled.div<{$noPadding?:boolean}>`
+  box-shadow: ${boxShadows.lg};
+  background-color: ${colors.cardBackgroundLight};
+  ${({$noPadding}) => !$noPadding && `padding: ${spacing.md};`}
+  margin: ${spacing.lg};
+  border-radius: ${borderRadius.lg};
+
+  iframe {
+    border-radius: ${borderRadius.lg};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: ${colors.cardBackgroundDark};
+  }
 `

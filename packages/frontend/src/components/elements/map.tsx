@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {borderRadius, spacing} from "../../theme/theme";
+import {borderRadius} from "../../theme/theme";
 import {useEffect, useState} from "react";
 import {loader} from "../../utils/googlemaps-loader";
 import {TrainLocationData} from "../types/LocatorTypes";
@@ -7,12 +7,16 @@ import {useInterval} from "../../utils/use-interval";
 import {ApiPaths, makeApiCall} from "../../utils/api";
 import {CenteredFlex} from "../containers/flex-containers";
 import {LoaderIcon} from "./loader";
+import {CardWrapper} from "./basic";
 
 const MapsWrapper = styled.div`
   height: 400px;
   width: 400px;
   border-radius: ${borderRadius.md};
-  margin: ${spacing.lg};
+  > * >div{
+    border-radius: ${borderRadius.md};
+    overflow: hidden;
+  }
 `
 
 export function Maps({lat, lon}:{lat: number, lon: number}){
@@ -43,7 +47,7 @@ export function Maps({lat, lon}:{lat: number, lon: number}){
                 console.log(e)
             });
     })
-    return <MapsWrapper id="map"/>
+    return <CardWrapper $noPadding><MapsWrapper id="map"/></CardWrapper>
 }
 
 export function MapsForTrainLocation({trainCode}:{trainCode: string}){

@@ -15,7 +15,7 @@ export function MavNewsPage() {
     makeApiCall<NewsApiResponse>({path:ApiPaths.MAV_NEWS, timeout: 10000}).then(result=>{
       setNews(result);
     }).catch(e=>{
-      setError(e);
+      setError(e.toString());
     });
   },[])
   if(error) return <ErrorPage text={error}/>

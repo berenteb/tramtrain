@@ -15,7 +15,7 @@ export function SzktNewsPage() {
     makeApiCall<NewsApiResponse>({path:ApiPaths.SZKT_NEWS, timeout: 10000}).then(result=>{
       setNews(result);
     }).catch(e=>{
-      setError(e);
+      setError(e.toString());
     });
   },[])
   if(error) return <ErrorPage text={error}/>

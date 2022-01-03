@@ -10,12 +10,12 @@ import {useNavigate} from "react-router";
 export function Navbar(){
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const navigate = useNavigate();
-    return <NavbarContentWrapper
+    return <NavbarWrapper
         onClick={(evt) => {
             if ((evt.target as Element).closest(".navbutton")) setMenuOpen(false);
         }}
     >
-    <NavbarWrapper>
+    <NavbarContentWrapper>
         <NavbarMainGroup>
             <Logo/>
             <Title onClick={()=>{navigate("/",{replace: true})}}>Tram-train</Title>
@@ -30,8 +30,8 @@ export function Navbar(){
             <LinkButton className="navbutton" kind={ButtonKinds.PLAIN} to={Paths.MAIN}>Főoldal</LinkButton>
             <LinkButton className="navbutton" kind={ButtonKinds.PLAIN} to={Paths.STOPS}>Megállók</LinkButton>
         </NavbarGroup>
-    </NavbarWrapper>
     </NavbarContentWrapper>
+    </NavbarWrapper>
 }
 
 function MenuButton({onClick,isOpen}: {
@@ -61,7 +61,8 @@ const MenuButtonWrapper = styled.button`
   }
 `;
 
-const NavbarWrapper = styled.nav`
+const NavbarContentWrapper = styled.nav`
+  max-width: 900px;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -69,16 +70,10 @@ const NavbarWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  margin: 0;
-  position: sticky;
-  top: 0;
-  background-color: ${colors.primary};
+  margin: 0 auto;
   color: white;
   position: -webkit-sticky;
   padding: 5px 10px;
-  box-shadow: ${boxShadows.md};
-  -webkit-box-shadow: ${boxShadows.md};
-  -moz-box-shadow: ${boxShadows.md};
 `
 
 const LogoWrapper = styled.div`
@@ -87,6 +82,7 @@ const LogoWrapper = styled.div`
   background-color: white;
   border-radius: 300px;
   margin: ${spacing.sm};
+  overflow: hidden;
 `
 
 function Logo(){
@@ -119,11 +115,14 @@ const NavbarGroup = styled.div<{ $isMenuOpen: boolean }>`
   }
 `;
 
-const NavbarContentWrapper = styled.div`
+const NavbarWrapper = styled.div`
   position: sticky;
   position: -webkit-sticky;
   top: 0;
   z-index: 10;
   box-shadow: ${boxShadows.md};
+  -webkit-box-shadow: ${boxShadows.md};
+  -moz-box-shadow: ${boxShadows.md};
+  background-color: ${colors.primary};
 `;
 
